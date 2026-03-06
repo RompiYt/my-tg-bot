@@ -1,5 +1,6 @@
 from aiogram import Dispatcher
-from tgbott.handlers import router
+from handlers import router
 
 dp = Dispatcher()
 dp.include_router(router)  
+
