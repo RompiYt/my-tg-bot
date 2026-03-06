@@ -4,9 +4,9 @@ from aiogram.filters import CommandStart
 from aiogram.types import Message, CallbackQuery
 from aiogram.enums import ParseMode
 import logging
-from tgbott.config import CURATOR_ID
-from tgbott.database import add_to_database
-from tgbott.keyboards import main_keyboard, cancel_keyboard, get_reply_keyboard
+from config import CURATOR_ID
+from database import add_to_database
+from keyboards import main_keyboard, cancel_keyboard, get_reply_keyboard
 from openai import AsyncClient
 
 AI_TOKEN = "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"
@@ -114,4 +114,5 @@ async def echo_handler(message: Message) -> None:
     msg = await message.answer('Нейросеть готовит ответ')
     response = await generate_response(message.text)
     await msg.delete()
+
     await message.answer(f'{response}')
